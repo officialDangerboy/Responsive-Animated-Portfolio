@@ -1,0 +1,837 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Figtree", sans-serif;
+}
+
+html,body {
+    min-height: 100vh;
+    width:100%;
+}
+
+body{
+    background: black;
+}
+.slideBar{
+    width: 100%;
+    position: fixed;
+    top: -150%;
+    z-index: 1;
+    height: 50%;
+    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 9vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5vw;
+    color: white;
+}
+.slideBar h4{
+    cursor: pointer;
+}
+.slideBar h4:hover{
+    text-decoration: underline;
+    color:blue;
+}
+
+nav h4.active,
+.slideBar h4.active{
+  color: blue;
+}
+
+.slideBar button{
+    padding: 3vw 6vw;
+    background: blue;
+    font-size: 8vw;
+    border-radius: 8px;
+    border:none;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+header{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding:1vw 2vw;
+    align-items: center;
+    position: sticky;
+    z-index: 2;
+    top:0;
+    left:0;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.2);
+    color: white;
+}
+
+header h1{
+    font-size: 3.5vw;
+    cursor: pointer;
+}
+nav h4{
+    cursor: pointer;
+}
+nav{
+    display: flex;
+    gap:2vw;
+    align-items: center;
+}
+
+nav i{
+    display: none;
+    cursor: pointer;
+}
+
+nav button{
+    padding: 1vw 2vw;
+    background: blue;
+    border-radius: 4px;
+    border:none;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.home{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    padding:2vw;
+    position: relative;
+    overflow: hidden;
+}
+.home .left{
+    position: relative;
+    height: 100%;
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color : white;
+}
+.home .right{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    color:white;
+}
+
+.left h1{
+    font-size: 5.8vw;
+    line-height: 5vw;
+}
+.left span{
+    color: blue;
+}
+.left p{
+    font-size: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+    color: #D2D3D9;
+}
+.left button{
+    padding: 1vw 3vw;
+    background: blue;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 2.5vw;
+    width: 18vw;
+    cursor: pointer;
+}
+
+.rightImg{
+    height: 35vw;
+    width: 35vw;
+}
+
+.divImg{
+    background-image: url(https://media.istockphoto.com/id/932559358/photo/silhouette-of-virtual-human-on-circuit-pattern-technology-3d-illustration.jpg?s=612x612&w=0&k=20&c=nIlIze3WtyNN6kZZpWFL3oRSycHFTugUCNxRFEBkOYw=);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.services{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.servicesLeft .image{
+    position: relative;
+    height: 30vw;
+    width: 30vw;
+}
+
+.servicesLeft .img {
+    background-image: url(https://i.ibb.co/hJqkp2tK/IMG-20250801-113154-677.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 95%;
+    width: 95%;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.servicesLeft .image::before,
+.servicesLeft .image::after{
+    content: '';
+    position: absolute;
+    top: 47.5%;
+    left: 47.5%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        from var(--angle),
+        blue 0%,
+        blue 2%,
+        transparent 0%,
+        transparent 5%,
+        blue 50%
+    );
+    animation: spin 4s linear infinite;
+    pointer-events: none;
+}
+
+.servicesLeft .image::before{
+    filter: blur(1.2rem);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.servicesLeft .image::after {
+    z-index: -1;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.social i:hover,button:hover{
+    color: #fff;
+    background: black;
+    border: 2px solid blue;
+    box-shadow: 0 0 15px blue;
+}
+
+.servicesLeft{
+    position: relative;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    padding: 2vw;
+}
+
+.serviceRight{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:2vw;
+    overflow: hidden;
+}
+.serviceRight h1{
+    font-size: 5.8vw;
+}
+.serviceRight span{
+    color: blue;
+}
+.serviceRight p{
+    font-size: 2vw;
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+    color: #D2D3D9;
+    text-align: center;
+}
+
+.social{
+    display: flex;
+    gap:15px;
+    font-size: 3vw;
+}
+
+.social i{
+    padding:1vw;
+    border-radius: 50%;
+    background:blue;
+    cursor: pointer;
+}
+
+.experience{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.experience .serviceTop{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5.8vw;
+}
+
+.serviceTop span{
+    color: blue;
+}
+
+.experience .serviceBottom{
+    height: 80%;
+    width: 100%;
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32%;
+    padding: 1.5vw;
+    gap:1vw;
+    border-radius: 10px;
+    border: 2px solid blue;
+    cursor: pointer;
+}
+.card p{
+    font-size: 1vw;
+    text-align: center;
+    color: #D2D3D9;
+}
+.card h1{
+    font-size: 3vw;
+}
+.card i{
+    font-size: 4vw;
+}
+.card button{
+    padding: 0.5vw 1.5vw;
+    background: blue;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.card button:hover {
+    color: #fff;
+    background: black;
+    border: 2px solid blue;
+    box-shadow: 0 0 15px blue;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px blue;
+}
+
+.projects{
+    height: 170vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectsTop{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.projectsTop span{
+    color:blue;
+}
+.projectsTop h4{
+    font-size: 5.8vw;
+}
+.projectsBottom{
+    height: 80%;
+    width: 100%;
+    padding: 2vw;
+    display: flex;
+}
+
+.projectsImgLeft,
+.projectsImgRight{
+    height: 100%;
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.project1,.project2,.project3,.project4{
+    height: 49%;
+    width: 99%;
+    border-radius: 1vw;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2vw;
+    gap:1vw;
+    border:1px solid blue;
+    box-shadow: 0 0 2px blue;
+    cursor: pointer;
+}
+
+.project1 h4, .project2 h4, .project3 h4, .project4 h4 {
+ font-size: 2vw;
+opacity: 0;
+}
+
+.project1 p, .project2 p, .project3 p, .project4 p {
+font-size: 1vw;
+color: #D2D3D9;
+opacity: 0;
+}
+
+.project1 i, .project2 i, .project3 i, .project4 i {
+font-size: 1vw;
+padding: 0.2vw;
+border-radius: 50%;
+box-shadow: 0 0 10px white;
+opacity: 0;
+}
+
+.project1:hover,
+.project2:hover,
+.project3:hover,
+.project4:hover {
+background: linear-gradient(to top, blue, transparent, transparent);
+}
+
+.project1:hover h4, .project1:hover p, .project1:hover i,
+.project2:hover h4, .project2:hover p, .project2:hover i,
+.project3:hover h4, .project3:hover p, .project3:hover i,
+.project4:hover h4, .project4:hover p, .project4:hover i {
+opacity: 1;
+}
+
+
+.project1{
+    background-image: url(https://plus.unsplash.com/premium_photo-1678565879444-f87c8bd9f241?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29kZXJ8ZW58MHx8MHx8fDA%3D);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.project2{
+    background-image: url(https://images.unsplash.com/photo-1593720216276-0caa6452e004?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fGNvZGVyfGVufDB8fDB8fHww);
+    background-size: cover;
+    background-position: center;
+}
+
+.project3{
+    background-image: url(https://plus.unsplash.com/premium_photo-1678565546661-bf43274dd428?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D);
+    background-size: cover;
+    background-position: center;
+}
+
+.project4{
+    background-image: url(https://images.unsplash.com/photo-1724166573009-4634b974ebb2?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGNvZGVyfGVufDB8fDB8fHww);
+    background-size: cover;
+    background-position: center;
+}
+
+.signIn{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+
+.registerTop{
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+.registerTop span{
+    color: blue;
+}
+.registerTop h4{
+    font-size: 5.8vw;
+}
+
+.registerBottom{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+
+.registerBottom input,.registerBottom textarea{
+    background: black;
+    outline: none;
+    color: white;
+    border:1.5px solid blue;
+    border-radius: 3px;
+    padding:1vw 2vw;
+    font-size: 2vw;
+}
+
+.registerBottom input::placeholder,.registerBottom textarea::placeholder {
+    color: #D2D3D9;
+}
+
+.firstRow,.secondRow,.fourthRow{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+.thirdRow{
+    width:100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.thirdRow textarea{
+    width: 55%;
+    height: 97%;
+}
+
+.fourthRow button{
+    padding: 1vw 3vw;
+    background: blue;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 1.8vw;
+    cursor: pointer;
+}
+
+.fourthRow button:hover {
+    color: #fff;
+    background: black;
+    border: 2px solid blue;
+    box-shadow: 0 0 15px blue;
+}
+
+.footer{
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    padding:2vw;
+    border-top:0.5px solid blue;
+    margin-top: 2vw;
+    align-items: center;
+}
+.footer p{
+    color: #D2D3D9;
+    font-size: 1.5vw;
+}
+.footer i{
+    padding: 0.8vw;
+    background: blue;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.footer i:hover {
+    color: #fff;
+    background: black;
+    border: 2px solid blue;
+    box-shadow: 0 0 15px blue;
+}
+
+@media (max-width: 600px) {
+    nav h4{
+        display: none;
+    }
+    nav i{
+        display: block;
+        font-weight: 800;
+        font-size: 6vw;
+    }
+    nav button {
+        display: none;
+    }
+    header h1{
+        font-size: 8vw;
+    }
+    header{
+        padding: 4vw;
+        height: auto;
+    }
+    
+    .home{
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        padding: 0;
+    }
+    
+    .home .left{
+        width: 100%;
+        padding: 0 4vw;
+    }
+    
+    .left h1{
+        font-size: 10vw;
+        line-height: 10vw;
+    }
+    
+    .left button{
+        padding: 3vw 6vw;
+        border-radius: 4px;
+        font-weight: 800;
+        font-size: 5.5vw;
+        width: 40vw;
+    }
+    
+    .left p{
+        font-size: 5vw;
+        margin-top: 2vw;
+        margin-bottom: 5vw;
+    }
+    .home .right{
+        width: 100%;
+    }
+    
+    .rightImg{
+        height: 90%;
+        width: 90%;
+    }
+    .services{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .serviceRight{
+        width: 100%;
+        height: 50%;
+    }
+    .servicesLeft{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .servicesLeft .image{
+        height: 65vw;
+        width: 65vw;
+    }
+    .serviceRight h1{
+    font-size: 15vw;
+}
+.serviceRight p{
+    font-size: 4.5vw;
+    margin-top: 2vw;
+    margin-bottom: 5vw;
+    color: #D2D3D9;
+}
+
+.social{
+    gap:10px;
+    font-size: 6vw;
+}
+
+.social i{
+    padding:3vw;
+}
+
+.card{
+    width: 90%;
+    height: 32%;
+}
+.card i{
+    font-size: 8vw;
+}
+.card p{
+    font-size: 3vw;
+}
+.card h4{
+    font-size: 5vw;
+}
+.card button{
+    font-size: 3vw;
+    padding: 1.5vw 4vw;
+}
+.serviceTop h4{
+    font-size: 10vw;
+}
+
+.serviceBottom{
+    flex-direction: column;
+}
+
+.projectsTop h4{
+    font-size: 10vw;
+}
+
+.projectsBottom{
+    flex-direction: column;
+    gap:2vw;
+}
+
+.projectsImgLeft{
+    padding:1vw 4vw;
+}
+
+.projectsImgRight,.projectsImgLeft{
+    width: 100%;
+    flex-direction: column;
+}
+
+.projectsImgRight{
+    padding:0 4vw;
+}
+
+.project1 h4, .project2 h4, .project3 h4, .project4 h4 {
+ font-size: 8vw;
+}
+
+.project1 p, .project2 p, .project3 p, .project4 p {
+font-size: 3vw;
+}
+
+.project1 i, .project2 i, .project3 i, .project4 i {
+font-size: 3vw;
+padding: 1vw;
+border-radius: 50%;
+box-shadow: 0 0 10px white;
+opacity: 0;
+}
+.project1,.project2,.project3,.project4{
+    gap:2vw;
+}
+
+.signIn{
+    
+}
+.registerTop{
+    height: 10%;
+}
+
+.registerTop h4{
+    font-size: 10vw;
+}
+.registerBottom{
+    padding: 6vw;
+    height: 90%;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+  /*  background: rgba(0, 0, 0, 0.2);
+*/}
+
+
+.firstRow,.secondRow{
+    height: 22.5%;
+    flex-direction: column;
+    gap:1.5vw;
+}
+.thirdRow{
+    height: 55%;
+}
+.fourthRow{
+    height: 12.5%;
+}
+
+.registerBottom input,.registerBottom textarea{
+    padding:2vw 4vw;
+    font-size: 5vw;
+}
+
+.firstRow{
+    padding: 1.5vw 0;
+}
+
+.firstRow input,.secondRow input{
+    height: 99%;
+    width: 100%;
+}
+
+.thirdRow textarea{
+    height: 95%;
+    width: 100%;
+}
+
+.fourthRow button{
+    width: 100%;
+    font-size: 6vw;
+    height: 95%;
+}
+.footer{
+    padding:4vw 6vw;
+    flex-direction: column;
+    gap:5vw;
+}
+.footer p{
+    font-size: 3vw;
+    text-align: center;
+}
+.footer i{
+    padding: 2vw;
+    font-size: 4vw;
+}
+    
+}
